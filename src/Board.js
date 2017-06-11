@@ -13,7 +13,7 @@ function Board(props){
           <div key={i} className="row">
             {
               row.map((sq, i) =>
-                <Square key={i} row={row} square={sq} />
+                <Square key={i} row={row} square={sq} handleClick={props.handleBoardClick} />
               )
             }
           </div>

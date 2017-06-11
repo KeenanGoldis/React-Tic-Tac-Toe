@@ -12,7 +12,7 @@ function App(props){
   return(
     <div className="App">
       <div className="App-header">
-        <Board board={board}/>
+        <Board board={board} handleBoardClick={() => console.log(board)}/>
       </div>
     </div>
   );
