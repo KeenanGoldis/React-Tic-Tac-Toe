@@ -1,44 +1,31 @@
 import React from 'react';
-import Square from './Square.js'
-import './Board.css';
+import Square from './Square';
+import "./Board.css";
 
-import './App.css';
-
-
-function Board(props){
-  return(
+function Board(props) {
+  return (
     <div className="board">
       {
         props.board.map((row, i) =>
           <div key={i} className="row">
             {
-              row.map((sq, i) =>
-                <Square key={i} row={row} square={sq} handleClick={props.handleBoardClick} />
+              row.map((sq, j) =>
+                <Square
+                  key={j}
+                  square={sq}
+                  row={i}
+                  column={j}
+                  handleClick={(squareProps) =>
+                    props.handleBoardClick(squareProps)
+                  }
+                />
               )
             }
           </div>
         )
       }
-
     </div>
-  )
+  );
 }
-
-
-// this should be deleted probably.
-// <div className="row">
-//   < Square />
-//   < Square />
-//   < Square />
-// </div>
-// <div className="row">
-//   < Square />
-//   < Square />
-//   < Square />
-// </div><div className="row">
-//   < Square />
-//   < Square />
-//   < Square />
-// </div>
 
 export default Board;
